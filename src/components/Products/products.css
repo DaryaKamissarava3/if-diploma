@@ -1,0 +1,25 @@
+.products-section{
+  padding-bottom: 150px;
+}
+.products{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.products-items{
+  position: relative;
+  display: flex;
+}
+.section-header{
+  margin-bottom: 100px;
+}
+
+.section-products{
+  margin-left: 30%;
+  font-size: 60px;
+}
+
+.product-link{
+  text-decoration: none;
+  color: #000F08;
+}

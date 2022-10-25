@@ -1,0 +1,36 @@
+.instagram-section {
+  padding-bottom: 150px;
+}
+
+.inst-title {
+  display: flex;
+  align-self: center;
+  font-size: 24px;
+}
+
+.inst-text {
+  margin-right: 35px;
+}
+
+.inst-cursor {
+  margin-left: 12px;
+}
+
+.instagram-pictures {
+  display: flex;
+}
+
+.inst-main-picture {
+  width: 700px;
+  height: 700px;
+}
+
+.inst-extra-picture {
+  width: 350px;
+  height: 350px;
+}
+
+.inst-hashtag {
+  margin-top: 40px;
+  font-size: 30px;
+}
