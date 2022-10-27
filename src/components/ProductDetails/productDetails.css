@@ -1,6 +1,6 @@
-
 .product-container {
   margin-top: 150px;
+  margin-bottom: 150px;
 }
 
 .product-inner {
@@ -60,5 +60,6 @@
   margin-left: 2px;
   width: 98px;
   height: 90px;
+  cursor: pointer;
   background-color: #000F08;
 }

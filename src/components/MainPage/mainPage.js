@@ -13,7 +13,7 @@ const MainPage = () => {
 
   return (
     <>
-      <Navigation blockTitle="white-title" classForNav="nav-link dedicated" onClick={() => setSignOut(!signOut)} />
+      <Navigation blockTitle="white-title" classForNav="nav-link dedicated" fill="white" onClick={() => setSignOut(!signOut)} />
       <TopSection />
       <Category />
       <Products />

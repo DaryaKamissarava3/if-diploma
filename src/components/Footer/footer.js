@@ -3,7 +3,6 @@ import './footer.css';
 const Footer = () => {
   return (
     <div className="footer">
-      <div className="container">
         <div className="footer-inner">
           <div className="footer-item">
             <div className="footer-item-title">CUSTOMER SERVICE</div>
@@ -70,7 +69,6 @@ const Footer = () => {
             </div>
           </div>
         </div>
-      </div>
     </div>
   );
 };

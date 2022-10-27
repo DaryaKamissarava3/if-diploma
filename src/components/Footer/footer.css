@@ -6,7 +6,7 @@
   padding: 50px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .footer-item-title {

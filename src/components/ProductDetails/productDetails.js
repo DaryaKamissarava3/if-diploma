@@ -4,6 +4,8 @@ import Navigation from '../Navigation/navigation';
 import './productDetails.css'
 import BagButton from "../BagButton/bagButton";
 import WishList from "../WishList/wishList";
+import Subscription from "../Subscription/subscription";
+import Footer from "../Footer/footer";
 
 const ProductDetails = () => {
   const params = useParams();
@@ -26,7 +28,7 @@ const ProductDetails = () => {
   return (
     <>
       <section className="product-details">
-        <Navigation blockTitle="black-title" classForNav="nav-link-black"/>
+        <Navigation  blockTitle="black-title" classForNav="nav-link-black" fill="black"/>
         <div className="product-container">
           <div className="product-inner">
             <div className="product-images first-block">
@@ -56,16 +58,16 @@ const ProductDetails = () => {
               <div className="buttons-to-add">
                 <BagButton />
                 <button className="wish-button">
-                  <WishList />
+                  <WishList  fill="white"/>
                 </button>
               </div>
               <div>{productInformation.description}</div>
             </div>
           </div>
         </div>
+        <Subscription />
+        <Footer />
       </section>
-
-
     </>
   );
 };
