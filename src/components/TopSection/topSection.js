@@ -9,12 +9,12 @@ import {Navigate} from "react-router-dom";
 
 const TopSection = () => {
   const userStatus = useSelector((state) => state.auth);
-  const [signOut, setSignOut] = useState(false);
+
 
   return (
     <div className="header" style={{ backgroundImage: 'url(' + Background + ')' }}>
-      <Navigation onClick={() => setSignOut(!signOut)} />
-        <TopSectionTitle />
+
+      <TopSectionTitle />
       {!userStatus && <Navigate to="/login" />}
     </div>
   );

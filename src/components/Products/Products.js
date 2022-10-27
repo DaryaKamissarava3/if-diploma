@@ -19,6 +19,21 @@ const Products = () => {
       });
   }, []);
 
+
+  useEffect(() => {
+    localStorage.setItem('productsArray', JSON.stringify(products));
+  }, [products]);
+
+  const [arrFromLocalStorage, setArrFromLocalStorage] = useState(() => {
+    const saved = localStorage.getItem("productsArray");
+    const initialValue = JSON.parse(saved);
+    return initialValue || "";
+  });
+  // console.log(arrFromLocalStorage);
+  // arrFromLocalStorage.map((item)=>{
+  //   console.log(item.id)
+  // })
+
   const scrollAhead = () => {
     setMaxNumberImg(maxNumberImg + 1);
     setMinNumberImg(minNumberImg + 1);
@@ -42,21 +57,21 @@ const Products = () => {
             classForBtn="minus"
             minNumberOfImg={minNumberImg}
           />
-        {products.slice(minNumberImg, maxNumberImg).map((item) =>
-          (
-            <Link className="product-link" to={`/cards/${item.id}`} key={item.id}>
-              <ProductsItem
-                imgUrl={item.images[0]}
-                name={item.name}
-                type={item.type}
-                price={item.price}
-                color={item.color}
-                availableSizes={item.availableSizes}
-                description={item.description}
-                key={item.id}
-              />
-            </Link>
-          ))}
+          {arrFromLocalStorage.slice(minNumberImg, maxNumberImg).map((item) =>
+            (
+              <Link className="product-link" to={`/products/${item.id}`} key={item.id}>
+                <ProductsItem
+                  imgUrl={item.images[0]}
+                  name={item.name}
+                  type={item.type}
+                  price={item.price}
+                  color={item.color}
+                  availableSizes={item.availableSizes}
+                  description={item.description}
+                  key={item.id}
+                />
+              </Link>
+            ))}
           <Slider
             sliderBtn={More}
             changeSlide={scrollAhead}

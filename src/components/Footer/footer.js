@@ -66,7 +66,7 @@ const Footer = () => {
             </div>
             <div>
               <a href="#" className="footer-link">Visit us at Shalalaeva 23,
-              Bologoe, Russia</a>
+                Bologoe, Russia</a>
             </div>
           </div>
         </div>

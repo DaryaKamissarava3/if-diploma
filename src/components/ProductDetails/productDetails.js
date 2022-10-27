@@ -1,42 +1,71 @@
-import React, {useEffect, useState} from 'react';
-import {useParams} from "react-router-dom";
-import Picture from "../Picture/picture";
+import React, {useState} from 'react';
+import {useParams} from 'react-router-dom';
+import Navigation from '../Navigation/navigation';
+import './productDetails.css'
+import BagButton from "../BagButton/bagButton";
+import WishList from "../WishList/wishList";
 
 const ProductDetails = () => {
-  const [arrOfProductDetails, setArrOfProductsDetails] = useState({});
-  const [isLoad, setIsLoad] = useState(false);
   const params = useParams();
 
-  useEffect(() => {
-    setIsLoad(true);
-    fetch(`https://modnikky-api.herokuapp.com/api/catalog/${params.cardId}`)
-      .then((response) => {
-        return response.json();
-      }).then((data) => {
-      setArrOfProductsDetails(data);
-    }).catch(() => setIsLoad(false));
-  }, []);
+  const [arr, setArr] = useState(() => {
+    const saved = localStorage.getItem("productsArray");
+    const initialValue = JSON.parse(saved);
+    return initialValue || "";
+  });
+
+  const productInformation = arr.find((el) => {
+    if (el.id === params.id) {
+      return el;
+    }
+  });
+
+  const firstImage = productInformation.images[0].toString();
+  const secondImage = productInformation.images[1].toString();
 
   return (
     <>
-      {
-        isLoad ? (
-          <section className="hotel-details">
-            <Picture
-              imageUrl={arrOfProductDetails.imageUrl}
-              name={arrOfProductDetails.name}
-            />
-            <span>ergftyuiuujhytgfr</span>
-            <div className="card-hostel-name">{arrOfProductDetails.name}</div>
-            <div className="card-hostel-location">
-              {arrOfProductDetails.type},
-              <span className="card-hostel-country">
-                {arrOfProductDetails.description}
-              </span>
+      <section className="product-details">
+        <Navigation blockTitle="black-title" classForNav="nav-link-black"/>
+        <div className="product-container">
+          <div className="product-inner">
+            <div className="product-images first-block">
+              <div>
+                <img src={firstImage} className="prod-img" alt="img"/>
+              </div>
+              <div>
+                <img src={secondImage} className="prod-img" alt="img"/>
+              </div>
             </div>
-          </section>
-        ) : <div className="loader"/>
-      }
+            <div className="product-description">
+              <div className="prod-name">{productInformation.name}</div>
+              <div className="prod-price">
+                <span className="prod-price-currency">{productInformation.price.currency}</span>
+                $
+                <span>{productInformation.price.value}</span>
+              </div>
+              <div className="prod-status">
+                PRE-ORDER
+              </div>
+              <div>
+                COLOR
+                <div className="prod-color-square" style={{backgroundColor: `${productInformation.color.hex}`,
+                }}/>
+              </div>
+              <div className="prod-sizes">{productInformation.availableSizes}</div>
+              <div className="buttons-to-add">
+                <BagButton />
+                <button className="wish-button">
+                  <WishList />
+                </button>
+              </div>
+              <div>{productInformation.description}</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
     </>
   );
 };

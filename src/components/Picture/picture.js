@@ -3,11 +3,11 @@ import './picture.css'
 
 const Picture = ({imageUrl, name}) => {
   return (
-      <img
-        className="product-img"
-        src={imageUrl}
-        alt={name}
-      />
+    <img
+      className="product-img"
+      src={imageUrl}
+      alt={name}
+    />
   );
 };
 

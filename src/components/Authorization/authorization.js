@@ -7,9 +7,7 @@ import {useSelector, useDispatch} from 'react-redux';
 
 const Authorization = () => {
   const userStatus = useSelector((state) => state.auth);
-
   const dispatch = useDispatch();
-
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [disabled, setDisabled] = useState(true);
@@ -85,8 +83,8 @@ const Authorization = () => {
           </div>
           <div className="authorization-terms-rules">
             By signing up you agree to <a href="#" className="auth-links">Terms of Service</a> and <a href="#" className="auth-links">
-              Privacy Policy
-            </a>
+            Privacy Policy
+          </a>
           </div>
           <div>
             <button

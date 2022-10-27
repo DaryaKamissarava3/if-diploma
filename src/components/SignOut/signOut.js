@@ -1,3 +1,4 @@
+
 import './signOut.css';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -14,7 +15,7 @@ const SignOut = () => {
   };
 
   return (
-      <p className="underline-item" onClick={logout} >SIGN OUT</p>
+    <p className="underline-item" onClick={logout} >SIGN OUT</p>
   );
 };
 
