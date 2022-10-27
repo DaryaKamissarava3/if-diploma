@@ -61,7 +61,41 @@ const ProductDetails = () => {
                   <WishList  fill="white"/>
                 </button>
               </div>
-              <div>{productInformation.description}</div>
+              <div className="accordion">
+                <div className="accordion_item active" >
+                  <div className="accordion_header">
+                      <div className="accordion-title">PRODUCT DESCRIPTION</div>
+                  </div>
+                  <div className="accordion_content" >
+                    <p>
+                      {productInformation.description}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="accordion_item">
+                  <div className="accordion_header">
+                      <div className="accordion-title">SHIPPING & RETURNS</div>
+                  </div>
+                  <div className="accordion_content">
+                    <p>
+                      {productInformation.description}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="accordion_item">
+                  <div className="accordion_header">
+                      <div className="accordion-title">FABRIC COMPOSITION</div>
+                  </div>
+                  <div className="accordion_content">
+                    <p>
+                      {productInformation.description}
+                    </p>
+                  </div>
+                </div>
+              </div>
+
             </div>
           </div>
         </div>
