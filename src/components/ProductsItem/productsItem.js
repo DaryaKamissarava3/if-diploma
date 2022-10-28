@@ -2,7 +2,7 @@ import React from 'react';
 import Picture from "../Picture/picture";
 import './productItem.css'
 
-const ProductsItem = ({name, type, price, color, availableSizes, description, imgUrl}) => {
+const ProductsItem = ({name, price, imgUrl}) => {
   return (
     <div className="card-item">
       <span className="like-note">

@@ -4,7 +4,7 @@
   top: -30px;
   left: 0;
   right: 0;
-  z-index: 1000;
+  z-index: 900;
 }
 
 .nav {
@@ -41,6 +41,21 @@
   color: #FFFFFF;
 }
 
+.search-btn{
+  padding: 0;
+  margin-top: 2px;
+  margin-right: 50px;
+  font-size: 24px;
+  color: #FFFFFF;
+  background-color: rgba(28,28,28,0);
+  border: none;
+}
+
+.search-btn:hover{
+  cursor: pointer;
+  color: #000F08;
+}
+
 .nav-link-black {
   margin-right: 50px;
   text-decoration: none;
@@ -63,6 +78,20 @@
 
 svg path:hover {
   fill: #000F08;
+}
+.modal-container{
+  margin-top: 10%;
+  margin-left: 20%;
+}
+.modal-input{
+  width: 900px;
+  height: 100px;
+  font-size: 40px;
+  background-color: rgba(28,28,28,0);
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+  border-bottom: 3px solid #FFFFFF;
 }
 
 

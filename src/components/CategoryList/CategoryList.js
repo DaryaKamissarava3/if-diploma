@@ -1,12 +1,13 @@
 import React from 'react';
-import ProductsItem from "../ProductsItem/productsItem";
+import ProductsItem from '../ProductsItem/productsItem';
+import './categoryList.css';
 
-const CategoryList = ({ isActive, foundProducts }) => {
+const CategoryList = ({ isActive, foundProducts,sectionTitle }) => {
   return (
-    <section className={isActive ? 'section available-hotels' : 'hide'}>
+    <section className={isActive ? 'section products-list' : 'hide'}>
       <div className="container">
         <div className="section-header">
-          <h2 className="section-subtitle underline">Available Hotels</h2>
+          <h2 className="section-subtitle underline">{sectionTitle}</h2>
         </div>
         <div className="card">
           {foundProducts.map((item) =>
