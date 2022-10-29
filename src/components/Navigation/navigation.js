@@ -1,18 +1,43 @@
 import './navigation.css';
-import SignOut from "../SignOut/signOut";
-import WishList from "../WishList/wishList";
-import {useState} from "react";
-import Modal from "../Modal/modal";
-import React from "react";
+import SignOut from '../SignOut/signOut';
+import WishList from '../WishList/wishList';
+import React, {useState} from 'react';
+import Modal from '../Modal/modal';
 
-
-const Navigation = ({classForNav, blockTitle, fill, updateClassStatus}) => {
+const Navigation = ({classForNav, blockTitle, fill, updateClassStatus, updateDataSearch}) => {
   const [modalActive, setModalActive] = useState(false);
+  const [searchValue, setSearchValue] = useState('');
 
-  const handleClick = event => {
-    console.log('from handle')
-    updateClassStatus((prevState) => !prevState);
+  const [arr, setArr] = useState(() => {
+    const saved = localStorage.getItem("productsArray");
+    const initialValue = JSON.parse(saved);
+    return initialValue || "";
+  });
+
+  const handleInput = (event) => {
+    setSearchValue(event.target.value);
   };
+
+  const findMatchesInArray = (value) => {
+    const string = value.toString().toLowerCase();
+    return arr.filter(function (o) {
+      return Object.keys(o).some(function (k) {
+        return o[k].toString().toLowerCase().indexOf(string) !== -1;
+      });
+    });
+  };
+
+  const handleKeyDown = async (event) => {
+    if (event.key === 'Enter') {
+      const res=findMatchesInArray(searchValue);
+      if (res.length === 0) {
+        alert('No beauty products found');
+        return;
+      }
+      updateClassStatus((prevState) => !prevState);
+      updateDataSearch(res);
+    }
+  }
 
   return (
     <>
@@ -50,7 +75,7 @@ const Navigation = ({classForNav, blockTitle, fill, updateClassStatus}) => {
       </header>
       <Modal active={modalActive} setActive={setModalActive}>
         <div className="modal-container">
-          <input className="modal-input" type="text"/>
+          <input className="modal-input" type="text" onChange={handleInput} onKeyDown={handleKeyDown}/>
         </div>
       </Modal>
     </>
